@@ -2,16 +2,15 @@
 #include <math.h>
 // Usuário GitHub: GianMattos
 // Este é basicamente meu primeiro código, pois antes somente havia testado as funções. Construí ele do zero.
-// O código questiona ao usuário o que e 6 operações matemáticas que ele deseje fazer, pede números interios para a operação e apresenta o resultado.
-// Na linha 14 criei os valores 3 e 4 pois na operação de divisão com inteiros ele considerava sempre .0000 no resultado. Ex. 5/2 = 2.00000.
-// Na linha 16 eu sei que poderia deixar mais clean, talvez apresentando vários printf organizadamente.
-// Dentro dos Ifs e Elses sei que poderia deixar mais curto, e talvez ter as declarações de dados de uma maneira melhor e menor.
-// BUGs: Na linha 16 ao declarar a operação, buga ao ser informado um número com vírgulas;
-// Melhorias: Não exibir os .00000 ao final da raiz e divisão, deixar o código visualmente mais clean, criar um loop de retorno para o que o usuário não precise dar "Run" para efetuar outras operações e verificar dados excedentes não utilizados (Esta avaliação de utilização de memória eu não fiz aqui).
+// O código questiona ao usuário qual das 6 operações matemáticas ele deseja executar, pede números interios para a operação e apresenta o resultado.
+// Na linha 15 eu sei que poderia deixar mais clean, talvez apresentando vários printf organizadamente (Mas daí mais longa).
+// Dentro dos Ifs e Elses sei que poderia deixar mais curto (Ou talvez utilizar outro loop), e ter as declarações de dados de uma maneira melhor e menor.
+// BUGs: Na linha 15 ao declarar a operação a ser realizada, buga ao ser informado um número com vírgulas;
+// Melhorias: Deixar o código visualmente mais clean, criar um loop de retorno para o que o usuário não precise dar "Run" para efetuar outras operações e verificar dados excedentes não utilizados (Esta avaliação de utilização de memória eu não fiz aqui).
 
 int main(void) {
-int i, Valor1, Valor2, Soma, Sub, Mult;
-float Raiz, Div, Pot, Valor3, Valor4;
+int i, valor1, valor2, soma, sub, mult, pot;
+float raiz, div, valor3, valor4;
   // Apresentação //
   printf("\nAtividade de produção U2 - Algoritmos e programação\nAluno: Gian Griep de Mattos\nMatrícula: 202121647\nCurso: Análise e desenvolvimento de sistemas\nInstituição: Universidade LaSalle\n\nQual operação matemática deseja realizar?\n\n1 - Raiz quadrada\n2 - Adição\n3 - Subtração\n4 - Multiplicação\n5 - Divisão\n6 - Potenciação\n\nDeclaração da operação: ");
 
@@ -19,54 +18,54 @@ scanf("%d", &i);
   
 if (i==1) {
   printf("\nDe qual valor inteiro você quer tirar a raiz quadrada?\n\nValor 1: ");
-  scanf("%d", &Valor1);
-  Raiz=sqrt(Valor1);
-  printf("\nA raiz quadrada de %d = %f",Valor1,Raiz);
+  scanf("%d", &valor1);
+  raiz=sqrt(valor1);
+  printf("\nA raiz quadrada de %d = %g",valor1,raiz);
 }  
 else if (i==2) {
   printf("\nQuais valores inteiros você quer somar?\n\nValor 1: ");
-  scanf("%d", &Valor1);
+  scanf("%d", &valor1);
   printf("Valor 2: ");
-  scanf("%d", &Valor2);
-  Soma=Valor1+Valor2;
-  printf("\nA soma de %d + %d = %d",Valor1,Valor2,Soma);
+  scanf("%d", &valor2);
+  soma=valor1+valor2;
+  printf("\nA soma de %d + %d = %d",valor1,valor2,soma);
 }
 else if (i==3) {
   printf("\nQuais valores inteiros você quer subtrair?\n\nValor a sofrer subtração: ");
-  scanf("%d", &Valor1);
+  scanf("%d", &valor1);
   printf("Valor subtraído: ");
-  scanf("%d", &Valor2);
-  Sub=Valor1-Valor2;
-  printf("\nA subtração de %d - %d = %d",Valor1,Valor2,Sub);
+  scanf("%d", &valor2);
+  sub=valor1-valor2;
+  printf("\nA subtração de %d - %d = %d",valor1,valor2,sub);
 }
 else if (i==4) {
   printf("\nQuais valores inteiros você quer multiplicar?\n\nValor 1: ");
-  scanf("%d", &Valor1);
+  scanf("%d", &valor1);
   printf("Valor 2: ");
-  scanf("%d", &Valor2);
-  Mult=Valor1*Valor2;
-  printf("\nA multiplicação de %d * %d = %d",Valor1,Valor2,Mult);
+  scanf("%d", &valor2);
+  mult=valor1*valor2;
+  printf("\nA multiplicação de %d * %d = %d",valor1,valor2,mult);
   }
 else if (i==5) {
   printf("\nQuais valores inteiros você quer dividir?\n\nDividendo: ");
-  scanf("%f", &Valor3);
+  scanf("%g", &valor3);
   printf("Divisor maior que zero: ");
-  scanf("%f", &Valor4);
-  Div=Valor3/Valor4;
-    if (Valor4==0) {
-      printf("\nA Divisão de %f por %f não pôde ser efetuado pois o divisor não pode ser zero.",Valor3,Valor4,Div);
+  scanf("%g", &valor4);
+  div=valor3/valor4;
+    if (valor4==0) {
+      printf("\nA Divisão de %g por %g não pôde ser efetuado pois o divisor não pode ser zero.",valor3,valor4,div);
     }
-    else if (Valor4!=0){
-      printf("\nA Divisão de %f / %f = %f",Valor3,Valor4,Div);
+    else if (valor4!=0){
+      printf("\nA Divisão de %g / %g = %g",valor3,valor4,div);
   }
   }
 else if (i==6) {
   printf("\nCom quais valores inteiros você quer realizar a potenciação?\n\nBase: ");
-  scanf("%f", &Valor3);
+  scanf("%d", &valor1);
   printf("Exponente: ");
-  scanf("%f", &Valor4);
-  Pot=powf(Valor3, Valor4);
-  printf("\nA potenciação de %f na base %f é %f",Valor3,Valor4,Pot);
+  scanf("%d", &valor2);
+  pot=powf(valor1, valor2);
+  printf("\nA potenciação de %d na base %d é %d",valor1,valor2,pot);
 }
 else if (i!=6) {
   printf("\nDeve ser indicado um número inteiro de 1 a 6.");
